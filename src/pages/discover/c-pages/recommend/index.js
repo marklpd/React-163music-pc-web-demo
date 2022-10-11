@@ -1,15 +1,35 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
+
+import { connect } from 'react-redux'
+import { getTopBannerAction } from './store/actionCreators'
 
 import {
   RecommendWrapper
-}from './style'
+} from './style'
 
-const Recommend = memo(() => {
+const Recommend = (props) => {
+  const { getBanners } = props;
+
+  useEffect(() => {
+    getBanners()
+  }, [getBanners])
+
+
   return (
     <RecommendWrapper>
-      
+
     </RecommendWrapper>
   )
+}
+
+const mapStateToProps = state => ({
+  topBanners: state.recommend.topBanners
 })
 
-export default Recommend
+const mapDispatchToProps = dispatch => ({
+  getBanners: () => {
+    dispatch(getTopBannerAction())
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(memo(Recommend));

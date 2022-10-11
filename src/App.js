@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import { Provider } from 'react-redux';
 import { HashRouter, useRoutes } from 'react-router-dom';
 
 import routes from './router'
@@ -14,11 +15,13 @@ function RouteElement() {
 
 const App = memo(() => {
   return (
-    <HashRouter>
-      <AppHeader/> 
-      <RouteElement/> 
-      <AppFooter/>
-    </HashRouter>
+    <Provider store={store}>
+      <HashRouter>
+        <AppHeader />
+        <RouteElement />
+        <AppFooter />
+      </HashRouter>
+    </Provider>
   )
 })
 
