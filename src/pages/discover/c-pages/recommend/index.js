@@ -1,14 +1,22 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo } from 'react'
 
-import { connect } from 'react-redux'
-import { getTopBannerAction } from './store/actionCreators'
+import TopBanner from './c-cpns/top-banner';
 
-import {
-  RecommendWrapper
-} from './style'
+import {RecommendWrapper} from './style'
 
 const Recommend = (props) => {
-  const { getBanners } = props;
+
+  return (
+    <RecommendWrapper>
+      <TopBanner/>
+    </RecommendWrapper>
+  )
+}
+
+export default memo(Recommend);
+/*
+const Recommend = (props) => {
+  const { getBanners, topBanners } = props;
 
   useEffect(() => {
     getBanners()
@@ -33,3 +41,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(memo(Recommend));
+*/
