@@ -22,6 +22,8 @@ export const BannerLeft = styled.div`
   }
 `
 export const BannerRight = styled.div`
+  position: absolute;
+  right: -1px;
   width: 254px;
   height: 285px;
   background: url(${require("@/assets/img/download.png")}) ;
@@ -44,6 +46,23 @@ export const BannerRight = styled.div`
     margin: 10px auto;
     text-align: center;
     color: #8d8d8d;
+  }
+
+  .shadow,
+  .shadowr {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 20px;
+    height: 285px;
+    background-image: url(${require("@/assets/img/banner_sprite.png")});
+    background-position: -1px 0;
+  }
+  .shadowr {
+    left: auto;
+    right: -20px;
+    background-position: -20px 0;
   }
 `
 export const BannerControl = styled.div`

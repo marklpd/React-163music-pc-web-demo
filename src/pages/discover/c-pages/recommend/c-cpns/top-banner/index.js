@@ -55,8 +55,8 @@ const TopBanner = memo(() => {
           <BannerRight>
             <a className="btn" href="https://music.163.com/#/download" target="_blank"></a>
             <p>PC 安卓 iPhone WP iPad Mac 六大客户端</p>
-            <span></span>
-            <span></span>
+            <span className="shadow"></span>
+            <span className="shadowr"></span>
           </BannerRight>
           <BannerControl>
             <button className="btn left" onClick={() => bannerRef.current.prev()}></button>
