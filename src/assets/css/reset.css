@@ -23,6 +23,10 @@ a:hover {
   text-decoration: underline;
 }
 
+.s-c0,a.s-c0:hover {
+  color: #000;
+}
+
 /* 修改默认斜体为正常 */
 i, em {
   font-style: normal;

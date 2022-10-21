@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const RecommendWrapper = styled.div`
-  height: 500px;
+  /* height: 500px; */
+  min-height: 700px;
   width:100%;
 `
 export const Content = styled.div`

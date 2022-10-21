@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div`
-  height: 33px;
+  height: 35px;
   padding: 0 10px 0 34px;
   background-position: -225px -156px;
   border-bottom: 2px solid #C10D0C;
@@ -21,13 +21,15 @@ export const HeaderWrapper = styled.div`
     }
 
     .tab {
+      height: 16px;
+      line-height: 16px;
       margin: 7px 0 0 20px;
       ul {
         display: flex;
       }
 
       .line {
-        margin: 0 10px;
+        margin: 0 12px;
         color: #ccc;
       }
     }
