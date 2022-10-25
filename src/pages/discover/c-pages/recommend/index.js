@@ -20,6 +20,7 @@ const Recommend = (props) => {
       <Content className="wrap-v2">
         <RecommendLeft>
           <HotRecommend/>
+          <NewAlbum/>
         </RecommendLeft>
         <RecommendRight>
 

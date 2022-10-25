@@ -85,7 +85,7 @@ body, textarea, select, input, button {
 
 .sprite_cover { 
   background: url(../img/sprite_cover.png) no-repeat 0 9999px;
-}
+}   
 
 .sprite_icon {
   background: url(../img/sprite_icon.png) no-repeat 0 9999px;

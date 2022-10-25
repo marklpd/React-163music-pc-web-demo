@@ -37,8 +37,6 @@ const HotRecommend = memo(() => {
           })
         }
       </ul>
-      <HYThemeHeaderRCM title="新碟上架" />
-      <HYThemeHeaderRCM title="榜单" />
     </RecommendWrapper>
   )
 })

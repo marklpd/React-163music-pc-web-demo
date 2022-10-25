@@ -14,3 +14,9 @@ export function getHotRecommends(limit) {
     }
   })
 }
+
+export function getNewAlbums() {
+  return request({
+    url: "/album/newest"
+  })
+}
