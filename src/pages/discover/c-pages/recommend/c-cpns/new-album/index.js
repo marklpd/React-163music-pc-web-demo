@@ -23,7 +23,7 @@ const NewAlbum = memo(() => {
     <AlbumWrapper>
       <HYThemeHeaderRCM title="新碟上架" />
       <div className="content">
-        <a className="sprite_02 btn left" href="javascript:;"
+        <a className="sprite_02 btn left" 
           onClick={() => btnRef.current.prev()}></a>
         <div className="album">
           <Carousel dots={false} ref={btnRef}>
@@ -44,7 +44,7 @@ const NewAlbum = memo(() => {
             }
           </Carousel>
         </div>
-        <a className="sprite_02 btn right" href="javascript:;"
+        <a className="sprite_02 btn right" 
           onClick={() => btnRef.current.next()}></a>
       </div>
     </AlbumWrapper>

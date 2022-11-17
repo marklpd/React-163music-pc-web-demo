@@ -20,3 +20,22 @@ export function getNewAlbums() {
     url: "/album/newest"
   })
 }
+
+export function getTopList(id) {
+  return request({
+    url: "/playlist/detail",
+    params: {
+      id
+    }
+  })
+}
+
+export function getSettleSingers(cat, limit) {
+  return request({
+    url: "/artist/list",
+    params: {
+      cat,
+      limit
+    }
+  })
+}

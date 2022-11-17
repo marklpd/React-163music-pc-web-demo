@@ -105,3 +105,37 @@ export const discoverMenu = [
     link: "/discover/album"
   },
 ]
+
+// 热门主播
+export const hotAnchor = [
+  {
+    picUrl: "http://p1.music.126.net/H3QxWdf0eUiwmhJvA4vrMQ==/1407374893913311.jpg",
+    name: "陈立",
+    position: "心理学家、美食家陈立教授",
+    url: "/user/home?id=278438485"
+  },
+  {
+    picUrl: "https://p1.music.126.net/GgXkjCzeH4rqPCsrkBV1kg==/109951164843970584.jpg",
+    name: "刘维-Julius",
+    position: "歌手、播客节目《维维道来》主理人",
+    url: "/user/home?id=559210341",
+  },
+  {
+    picUrl: "http://p1.music.126.net/6cc6lgOfQTo6ovNnTHPyJg==/3427177769086282.jpg",
+    name: "国家大剧院古典音乐频道",
+    position: "国家大剧院古典音乐官方",
+    url: "/user/home?id=324314596",
+  },
+  {
+    picUrl: "https://p1.music.126.net/NHjNoFpLDEZ-3OR9h35z1w==/109951165825466770.jpg",
+    name: "碎嘴许美达",
+    position: "脱口秀网络红人",
+    url: "/user/home?id=1450418799",
+  },
+  {
+    picUrl: "https://p1.music.126.net/CpUdHPNvBvN7kebvL21TTA==/109951163676573083.jpg",
+    name: "银临Rachel",
+    position: "",
+    url: "/user/home?id=2688170"
+  }
+]

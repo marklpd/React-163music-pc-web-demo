@@ -4,10 +4,13 @@ import TopBanner from './c-cpns/top-banner';
 import HotRecommend from './c-cpns/hot-recommend';
 import NewAlbum from './c-cpns/new-album';
 import RankingList from './c-cpns/ranking-list';
+import UserLogin from './c-cpns/user-login';
+import Settle from './c-cpns/settle-singer';
+import HotAnchor from './c-cpns/hot-anchor';
 
 import {
   RecommendWrapper,
-  Content, 
+  Content,
   RecommendLeft,
   RecommendRight
 } from './style'
@@ -19,11 +22,14 @@ const Recommend = (props) => {
       <TopBanner />
       <Content className="wrap-v2">
         <RecommendLeft>
-          <HotRecommend/>
-          <NewAlbum/>
+          <HotRecommend />
+          <NewAlbum />
+          <RankingList />
         </RecommendLeft>
         <RecommendRight>
-
+          <UserLogin />
+          <Settle />
+          <HotAnchor />
         </RecommendRight>
       </Content>
     </RecommendWrapper>
