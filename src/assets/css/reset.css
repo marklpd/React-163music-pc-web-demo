@@ -147,3 +147,7 @@ span:hover.link {
   text-decoration: underline;
   cursor: pointer;
 }
+
+.sprite_playbar {
+  background: url(../img/playbar_sprite.png) no-repeat 0 9999px;
+}

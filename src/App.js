@@ -7,6 +7,7 @@ import store from './store';
 
 import AppHeader from '@/components/app-header';
 import AppFooter from '@/components/app-footer';
+import AppPlayBar from '@/pages/player/app-player-bar';
 
 function RouteElement() {
   const element = useRoutes(routes);
@@ -20,6 +21,7 @@ const App = memo(() => {
         <AppHeader />
         <RouteElement />
         <AppFooter />
+        <AppPlayBar />
       </HashRouter>
     </Provider>
   )

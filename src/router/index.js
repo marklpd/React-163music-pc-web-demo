@@ -1,3 +1,5 @@
+import { Navigate } from "react-router-dom";
+
 import Discover from "@/pages/discover";
 
 import Recommend from "../pages/discover/c-pages/recommend";
@@ -9,12 +11,12 @@ import Album from "../pages/discover/c-pages/album";
 
 import Mine from "@/pages/mine"
 import Friend from "@/pages/friend";
-import { Navigate } from "react-router-dom";
+import Player from "@/pages/player";
 
 const routes = [
   {
     path: "/",
-    element: <Navigate to="/discover"/>
+    element: <Navigate to="/discover" />
   },
   {
     path: "/discover/*",
@@ -22,41 +24,45 @@ const routes = [
     children: [
       {
         path: "",
-        element: <Navigate to = "/discover/recommend"/> 
+        element: <Navigate to="/discover/recommend" />
       },
       {
         path: "recommend",
-        element: <Recommend/>
+        element: <Recommend />
       },
       {
         path: "toplist",
-        element: <Toplist/>
+        element: <Toplist />
       },
       {
         path: "playlist",
-        element: <Playlist/>
+        element: <Playlist />
       },
       {
         path: "djradio",
-        element: <Djradio/>
+        element: <Djradio />
       },
       {
         path: "artist",
-        element: <Artist/>
+        element: <Artist />
       },
       {
         path: "album",
-        element: <Album/>
+        element: <Album />
+      },
+      {
+        path: "song",
+        element: <Player />
       }
     ]
   },
   {
-    path: "/mine",
+    path: "mine",
     element: <Mine />
 
   },
   {
-    path: "/friend",
+    path: "friend",
     element: <Friend />
   },
 ];

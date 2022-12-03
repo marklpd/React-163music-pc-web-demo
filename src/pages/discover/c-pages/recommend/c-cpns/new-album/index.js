@@ -26,7 +26,7 @@ const NewAlbum = memo(() => {
         <a className="sprite_02 btn left" 
           onClick={() => btnRef.current.prev()}></a>
         <div className="album">
-          <Carousel dots={false} ref={btnRef}>
+          <Carousel speed={1000} dots={false} ref={btnRef}>
             {
               [0, 1].map(item => {
                 return (
