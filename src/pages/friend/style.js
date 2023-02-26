@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const MineWrapper = styled.div`
+export const FriendWrapper = styled.div`
   .content {
     background-color: #fff;
     min-height: 700px;
@@ -8,16 +8,16 @@ export const MineWrapper = styled.div`
     .pic {
       position: relative;
       width: 807px;
-      height: 372px;
+      height: 484px;
       margin: 0 auto;
-      background: url(${require("@/assets/img/mine_sprite.png")}) 0 104px no-repeat;
+      background: url(${require("@/assets/img/friend_sprite.jpg")}) 0 104px no-repeat;
 
       .login {
         position: absolute;
         width: 167px;
         height: 45px;
         left: 482px;
-        top: 302px;
+        top: 368px;
         text-indent: -9999px;
       }
     }

@@ -9,8 +9,6 @@ import {
   InfoLeft,
   InfoRight
 } from './style';
-import { is } from 'immutable';
-
 
 const PlayerInfo = memo(() => {
   const [isSpread, setIsSpread] = useState(false);

@@ -3,7 +3,7 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 
 import { getTopListAction } from '../../store/actionCreators';
 
-import HYThemeHeaderRCM from '@/components/theme-header-rcm';
+import ThemeHeaderRCM from '@/components/theme-header-rcm';
 import TopRanking from "@/components/top-ranking";
 import { RankingWrapper } from './style';
 
@@ -26,7 +26,7 @@ const RankingList = memo(() => {
 
   return (
     <RankingWrapper>
-      <HYThemeHeaderRCM title="榜单" />
+      <ThemeHeaderRCM title="榜单" />
       <div className="top">
         <TopRanking info={state.topUpList}/>
         <TopRanking info={state.topNewList}/>
