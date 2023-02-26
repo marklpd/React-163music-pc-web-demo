@@ -33,7 +33,7 @@ export default memo(function PlayList() {
       animation: 200,
       currentIndex: 0,
       onEnd: function (evt) {
-        // 拖拽结束发生该事件
+        // 拖拽结束发生该事件 
         const list = [...playList];
         const cur = list.splice(evt.oldIndex, 1)[0];
         list.splice(evt.newIndex, 0, cur);
