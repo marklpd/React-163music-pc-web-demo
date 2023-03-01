@@ -26,13 +26,13 @@ export default memo(function LyricPanel() {
           currentLyrics.map((item, index) => {
             return (
               <div key={index}
-                className={classNames("lrc-item", { "active": index === currentLyricIndex })}>
+                className={"lrc-item" + (index === currentLyricIndex ? "active" : "")}>
                 {item.content}
               </div>
             )
           })
         }
       </div>
-    </PanelWrapper>
+    </PanelWrapper >
   )
 })

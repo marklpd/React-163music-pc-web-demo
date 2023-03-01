@@ -6,7 +6,8 @@ import classNames from 'classnames';
 import {
   changePlayListAction,
   getSongDetailAction,
-  changeCurrentSongIndexAction
+  changeCurrentSongIndexAction,
+  changeCurrentIndexAndSongAction
 } from '../../../store/actionCreators';
 import { formatMinuteSecond } from '@/utils/format-utils';
 
@@ -44,7 +45,7 @@ export default memo(function PlayList() {
           dispatch(changeCurrentSongIndexAction(evt.newIndex));
         } else if (currentSongIndex >= evt.newIndex && currentSongIndex <= evt.oldIndex) {
           dispatch(changeCurrentSongIndexAction(currentSongIndex + 1));
-        } else if(currentSongIndex <= evt.newIndex && currentSongIndex >= evt.oldIndex) {
+        } else if (currentSongIndex <= evt.newIndex && currentSongIndex >= evt.oldIndex) {
           dispatch(changeCurrentSongIndexAction(currentSongIndex - 1));
         }
       },
@@ -56,6 +57,18 @@ export default memo(function PlayList() {
     dispatch(getSongDetailAction(id))
   }
 
+  const clearCurrentSong = (e, index) => {
+    e.stopPropagation();
+    let newList = [...playList];
+    newList.splice(index, 1);
+    dispatch(changePlayListAction(newList));
+    if (index === currentSongIndex) {
+      dispatch(changeCurrentIndexAndSongAction(0));
+    } else if (index < currentSongIndex) {
+      dispatch(changeCurrentSongIndexAction(currentSongIndex - 1))
+    }
+  }
+
   return (
     <PlayListWrapper ref={playlistRef}>
       <div className="main-playlist">
@@ -65,9 +78,10 @@ export default memo(function PlayList() {
               <div key={item.id}
                 className={classNames("play-item", { "active": currentSongIndex === index })}
                 onClick={() => { changeSong(item.id) }}>
-                <div className={classNames("left", { "act": currentSongIndex === index })}>{item.name}</div>
+                <div className="left">{item.name}</div>
                 <div className="right">
-                  <span className="singer">{item.ar[0].name}</span>
+                  <span className="icn-del sprite_playlist" onClick={(e) => clearCurrentSong(e, index)}>删除</span>
+                  <span className="singer text-nowrap">{item.ar[0].name}</span>
                   <span className="duration">{formatMinuteSecond(item.dt)}</span>
                   <span className="sprite_playlist link"></span>
                 </div>

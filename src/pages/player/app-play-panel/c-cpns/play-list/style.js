@@ -39,25 +39,39 @@ export const PlayListWrapper = styled.div`
         background: url(${require("@/assets/img/playlist_sprite.png")}) -182px 0;
       }
     }
+    &:hover {
+      color: #fff;
 
-    .playicn {
-      
+      .icn-del {
+        display: block;
+      }
     }
 
     .left {
-      color: #CCCCCC;
-      text-decoration: none;
-      &.act , &:hover {
-        color: #fff;
-      }
+
     }
 
     .right {
       display: flex;
       align-items: center;
 
+      .icn-del {
+        width: 13px;
+        height: 13px;  
+        background-position: -51px 0;
+        opacity: 0;
+        overflow: hidden;
+        text-indent: -9999px;
+      }
+      &:hover {
+        .icn-del {
+          opacity: 1;
+        }
+      }
+
       .singer {
         width: 80px;
+        padding-left: 10px;
       }
 
       .duration {
