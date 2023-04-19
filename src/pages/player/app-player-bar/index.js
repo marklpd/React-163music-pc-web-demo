@@ -69,14 +69,20 @@ const AppPlayBar = memo(() => {
 
   const showDuration = formatMinuteSecond(duration);
 
-  // handle function
+  // handle function 播放暂停
   const playMusic = () => {
     isPlaying ? audioRef.current.pause() : audioRef.current.play();
     setIsPlaying(!isPlaying);
   }
 
+  const sliderChange = useCallback((value) => { //  Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入
+    setIsChanging(true);
+    setProgress(value);
+  })
+
+  // audio元素TimeUpdate事件触发
   const timeUpdate = (e) => {
-    const currentTime = e.target.currentTime; // s
+    const currentTime = e.target.currentTime; // ms
     if (!isChanging) {
       setCurrentTime(currentTime * 1000);
       setProgress(currentTime * 1000 / duration * 100);
@@ -99,22 +105,8 @@ const AppPlayBar = memo(() => {
     }
   }
 
-  const handleMusicEnded = () => {
-    if (sequence === 2) { // 单曲循环
-      setCurrentTime(0);
-      audioRef.current.play();
-    } else {
-      dispatch(changeCurrentIndexAndSongAction(1))
-    }
-  }
-
-  const sliderChange = useCallback((value) => { //  Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入
-    setIsChanging(true);
-    setProgress(value);
-  })
-
   const sliderAfterChange = useCallback((value) => {
-    const currentTime = value / 100 * duration / 1000;
+    const currentTime = value / 100 * duration / 1000; // ms
     audioRef.current.currentTime = currentTime;
     setCurrentTime(currentTime * 1000);
     setIsChanging(false);
@@ -124,10 +116,21 @@ const AppPlayBar = memo(() => {
     }
   }, [duration, isPlaying, playMusic])
 
+  // 当前播放歌曲结束处理
+  const handleMusicEnded = () => {
+    if (sequence === 2) { // 单曲循环
+      setCurrentTime(0);
+      audioRef.current.play();
+    } else {
+      dispatch(changeCurrentIndexAndSongAction(1))
+    }
+  }
+
   const changeMusic = (tag) => { // 切换歌曲
     dispatch(changeCurrentIndexAndSongAction(tag))
   }
 
+  // 播放列表播放顺序逻辑
   const sequenceInfo = (sequence) => {
     switch (sequence) {
       case 1:
@@ -163,11 +166,12 @@ const AppPlayBar = memo(() => {
               <a className="link sprite_playbar"></a>
             </div>
             <div className="progress">
+              {/* 进度条 */}
               <Slider value={progress}
-                step={0.01}
-                tooltip={{ open: false }}
-                onChange={sliderChange}
-                onAfterChange={sliderAfterChange} />
+                step={0.01}  // 步长
+                tooltip={{ open: false }}  // 进度值提示
+                onChange={sliderChange}  // 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入
+                onAfterChange={sliderAfterChange} />  
               <div className="time">
                 <span className="now-time">{formatMinuteSecond(currentTime)}</span>
                 <span className="divider">/</span>
@@ -194,8 +198,8 @@ const AppPlayBar = memo(() => {
         </Operator>
       </div>
       <audio ref={audioRef}
-        onTimeUpdate={e => timeUpdate(e)}
-        onEnded={e => handleMusicEnded()} />
+        onTimeUpdate={e => timeUpdate(e)}  // currentTime更新时会触发
+        onEnded={e => handleMusicEnded()} />  {/*音频达到结束时发生 */}
       <AppPlayPanel playPanelShow={playPanelShow} />
     </PlayBarWrapper>
   )

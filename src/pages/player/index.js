@@ -1,4 +1,5 @@
 import React, { memo } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import PlayerInfo from './c-cpns/player-info';
 import PlayerComment from './c-cpns/player-comment';
@@ -12,11 +13,13 @@ import {
 
 
 const Player = memo(() => {
+  const location = useLocation()
+
   return (
     <PlayerWrapper>
       <div className="content wrap-v2">
         <PlayerLeft>
-          <PlayerInfo />
+          <PlayerInfo id={location.search.slice(4)} />
         </PlayerLeft>
         <PlayerRight>
 

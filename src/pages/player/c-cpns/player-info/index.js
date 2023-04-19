@@ -1,5 +1,7 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useState, useLayoutEffect } from 'react'
 import { useSelector, shallowEqual } from 'react-redux';
+import { getSongDetail, getLyric } from '@/services/player';
+import { parseLyric } from '@/utils/lrc-parse';
 
 import { getSizeImage } from '@/utils/format-utils'
 import SongOperationBar from '@/components/song-operation-bar';
@@ -10,14 +12,26 @@ import {
   InfoRight
 } from './style';
 
-const PlayerInfo = memo(() => {
+const PlayerInfo = memo((props) => {
   const [isSpread, setIsSpread] = useState(false);
+  let currentSong, currentLyrics;
+
+  useLayoutEffect(() => {
+    getSongDetail(props.id).then(res => {
+      currentSong = res.songs[0];
+      console.log(currentSong);
+    })
+    getLyric(props.id).then(res => {
+      const lrcString = res.lrc.lyric;
+      currentLyrics = parseLyric(lrcString);
+    })
+  })
 
   // redux hook
-  const { currentSong, currentLyrics } = useSelector(state => ({
-    currentSong: state.getIn(["play", "currentSong"]),
-    currentLyrics: state.getIn(["play", "currentLyrics"])
-  }), shallowEqual);
+  // const { currentSong, currentLyrics } = useSelector(state => ({
+  //   currentSong: state.getIn(["play", "currentSong"]),
+  //   currentLyrics: state.getIn(["play", "currentLyrics"])
+  // }), shallowEqual);
 
   const totalLyricCount = isSpread ? currentLyrics.length : 13;
 

@@ -50,7 +50,6 @@ export default memo(function PlayList() {
         }
       },
     });
-
   }, [dispatch, playList]);
 
   const changeSong = (id) => {

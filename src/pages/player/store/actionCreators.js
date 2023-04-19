@@ -80,7 +80,7 @@ export const getSongDetailAction = (ids, key) => {
       const currentSong = playList[songIndex];
       dispatch(changeCurrentSongIndexAction(songIndex));
       dispatch(changeCurrentSongAction(currentSong));
-      dispatch(getLyricAction(currentSong.id));
+      dispatch(getLyricAction(currentSong.id)); 
     } else { // 未找到数据，先发送网络请求
       getSongDetail(ids).then(res => {
         const song = res.songs && res.songs[0];
