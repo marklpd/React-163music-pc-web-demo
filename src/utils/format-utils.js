@@ -50,3 +50,16 @@ export function formatMinuteSecond(time) {
 export function getPlayUrl(id) {
   return `https://music.163.com/song/media/outer/url?id=${id}.mp3`
 }
+
+// 防抖函数
+export function debounce(fn, delay) {
+  let timer = null;
+
+  return function (...args) {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+      timer = null; 
+    }, delay)
+  }
+}

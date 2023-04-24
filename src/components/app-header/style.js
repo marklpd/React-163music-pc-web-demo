@@ -76,6 +76,7 @@ export const HeaderLeft = styled.div`
 `
 
 export const HeaderRight = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   color: #ccc;
@@ -90,6 +91,88 @@ export const HeaderRight = styled.div`
       &::placeholder {
         
         font-size: 12px;
+      }
+    }
+  }
+
+  /* 下拉框 */
+  .down-slider {
+    position: absolute;
+    top: 59px;
+    left: 0;
+    right: 0;
+    width: 237px;
+    z-index: 999;
+    /* height: 144px; */
+    border: 1px solid #bebebe;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 4px 7px #555;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+
+    .search-header {
+      height: 35px;
+      .discover {
+        display: inline-block;
+        padding-top: 10px;
+        padding-left: 10px;
+      }
+    }
+
+    .content {
+      display: flex;
+      border: 1px solid rgb(183, 183, 187);
+
+      .zuo {
+        /* float: left; */
+        /* height: 100%; */
+        width: 65px;
+        /* border: 1px solid rgb(183, 183, 187); */
+        padding-top: 10px;
+        border-bottom: none;
+
+        .song {
+          color: #ccc;
+          margin-left: 28px;
+        }
+      }
+
+      .main {
+        display: inline-block;
+        font-size: 13px;
+        line-height: 28px;
+        border-left: 1px solid #e2e2e2;
+
+        .item {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 168px;
+          cursor: pointer;
+          height: 35px;
+          line-height: 35px;
+          color: #000;
+          text-indent: 8px;
+
+          &:hover {
+            background-color: #ecf0f1;
+            border-radius: 5%;
+            color: #2ecc71;
+          }
+
+          &.active {
+            background-color: #ecf0f1;
+            color: #2ecc71;
+          }
+
+          a {
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+      span.blue {
+        color: #7ab3dd;
       }
     }
   }
